@@ -7,7 +7,7 @@ module.exports = {
             const {client} = bot
 
             if(interaction.channel.name === 'name-and-number'){
-                if(interaction.content.includes('|')){
+                if(message.content.includes('|')){
                     let target = interaction.author
                     const member = interaction.guild.members.cache.get(target.id)
                     const memUser = interaction.guild.members.cache.get(target)
