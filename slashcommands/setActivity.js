@@ -9,7 +9,7 @@ module.exports = {
     description: "Set bot activity",
     perm: "ADMINISTRATOR",
     options: [{
-        name: "activity",
+        name: "activity", 
         description: "Activity to set",
         type: "STRING",
         required: true
