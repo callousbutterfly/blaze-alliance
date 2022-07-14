@@ -6,24 +6,24 @@ module.exports = {
         if(interaction.isCommand){
             const {client} = bot
 
-            if(message.channel.name === 'name-and-number'){
-                if(message.content.includes('|')){
-                    let target = message.author
-                    const member = message.guild.members.cache.get(target.id)
-                    const memUser = message.guild.members.cache.get(target)
-                    const owner = message.guild.members.cache.find(member => member.id === message.guild.ownerId);
+            if(interaction.channel.name === 'name-and-number'){
+                if(interaction.content.includes('|')){
+                    let target = interaction.author
+                    const member = interaction.guild.members.cache.get(target.id)
+                    const memUser = interaction.guild.members.cache.get(target)
+                    const owner = interaction.guild.members.cache.find(member => member.id === message.guild.ownerId);
     
                     //let changed = message.guild.members.filter(mem=>{mem.displayName != mem.user.username})
     
                     if(member !== owner && !member.displayName.includes('|')){
-                        member.setNickname(message.content)
+                        member.setNickname(interaction.content)
                         interaction.send({content:"Successfully changed your nickname, welcome to the server!", emphemeral: true})
                     }
                     else if(member === owner){
-                        message.reply({content: "You cannot change your user, you are the owner!", ephemeral: true})
+                        interaction.reply({content: "You cannot change your user, you are the owner!", ephemeral: true})
                     }
                     else if(member.displayName.includes('|'))
-                        message.reply({content: "Your nickname is already changed!", ephemeral: true})
+                    interaction.reply({content: "Your nickname is already changed!", ephemeral: true})
                 }
             }
 
