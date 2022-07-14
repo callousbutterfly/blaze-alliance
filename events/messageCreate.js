@@ -18,7 +18,7 @@ module.exports = {
 
                 if(member !== owner && !member.displayName.includes('|')){
                     member.setNickname(message.content)
-                    member.send("Successfully changed you nickname, welcome to the server!")
+                    member.send("Successfully changed your nickname, welcome to the server!")
                 }
                 //else if(member === owner){
                //     message.reply({content: "You cannot change your user, you are the owner!", ephemeral: true})
