@@ -13,6 +13,6 @@ module.exports = (bot, reload) => {
             const command = require(`../commands/${category}/${f}`)
             client.commands.set(command.name, command)
         })
-    })
+    }) 
     console.log(`Loaded ${client.commands.size} commands`)
 }
