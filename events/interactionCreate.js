@@ -5,28 +5,7 @@ module.exports = {
     run: async function runAll(bot, interaction, message) {
         if(interaction.isCommand){
             const {client} = bot
-
-            if(interaction.channel.name === 'name-and-number'){
-                if(message.content.includes('|')){
-                    let target = interaction.author
-                    const member = interaction.guild.members.cache.get(target.id)
-                    const memUser = interaction.guild.members.cache.get(target)
-                    const owner = interaction.guild.members.cache.find(member => member.id === message.guild.ownerId);
-    
-                    //let changed = message.guild.members.filter(mem=>{mem.displayName != mem.user.username})
-    
-                    if(member !== owner && !member.displayName.includes('|')){
-                        member.setNickname(interaction.content)
-                        interaction.send({content:"Successfully changed your nickname, welcome to the server!", emphemeral: true})
-                    }
-                    else if(member === owner){
-                        interaction.reply({content: "You cannot change your user, you are the owner!", ephemeral: true})
-                    }
-                    else if(member.displayName.includes('|'))
-                    interaction.reply({content: "Your nickname is already changed!", ephemeral: true})
-                }
-            }
-
+            
             if(!interaction.isCommand()) return
             if(!interaction.inGuild()) return interaction.reply("This command can only be used in a server")
         
