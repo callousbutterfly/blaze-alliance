@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const { createErrorEmbed } = require("../util/embedFactory");
 
 module.exports = {
     name: "interactionCreate",
@@ -7,14 +8,14 @@ module.exports = {
             const {client} = bot
             
             if(!interaction.isCommand()) return
-            if(!interaction.inGuild()) return interaction.reply("This command can only be used in a server")
+            if(!interaction.inGuild()) return interaction.reply({ embeds: [createErrorEmbed("Invalid Usage", "This command can only be used in a server.")] })
         
             const slashcmd = client.slashcommands.get(interaction.commandName)
         
             if(!slashcmd) return interaction.reply("Invalid slash command")
         
             if(slashcmd.perm && !interaction.member.permissions.has(slashcmd.perm))
-                return interaction.reply("You don't have valid permissions")
+                return interaction.reply({ embeds: [createErrorEmbed("Invalid Permissions", "You must have valid permissions to use this command.")] })
         
             slashcmd.run(client, interaction)
         }
