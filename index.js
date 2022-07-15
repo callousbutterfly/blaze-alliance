@@ -1,12 +1,6 @@
 const Discord = require("discord.js")
 require("dotenv").config()
 
-//const TOKEN = "MjgyMzQxNzE3MjY3NzA5OTUy.Gqoqhx.A66n2jM12rT6cI3GfPZBxrvnhxF2gEANdpL-WM" // Bot Token blaze 1
-const TOKEN = "OTkxODk4MDQ5ODI1NzM4ODUz.GRPknj.3qy3fyni7A74y7fb7xtZuxOItclWoqHxIve6S0" // Bot Token Blaze 3 (IN SERVER)
-
-const guildID = "915336884257968169" // Blaze Alliance Server ID
-//const guildID = "996295418025627728" // Test Server ID
-
 const client = new Discord.Client({
     intents: [
         "GUILDS",
@@ -18,12 +12,10 @@ const client = new Discord.Client({
 let bot = {
     client,
     prefix: "/",
-    owners: ["272288647699496960"]
+    owners: process.env.ADMINS
 } 
 
 module.exports = bot 
-//const guild = client.guilds.cache.get(guildID)
-//console.log(guild)
 
 client.slashcommands = new Discord.Collection()
 client.loadSlashCommands = (bot, reload) => require("./handlers/slashcommands")(bot, reload)
@@ -38,7 +30,7 @@ client.loadEvents = (bot, reload) => require("./handlers/events")(bot, reload)
 client.loadEvents(bot, false)
 
 client.on("ready", async () => {
-    const guild = client.guilds.cache.get(guildID)
+    const guild = client.guilds.cache.get(process.env.GUILD_ID)
     if(!guild)
         return console.error("Target guild not found")
 
@@ -47,4 +39,4 @@ client.on("ready", async () => {
 
 
 
-client.login(TOKEN)
+client.login(process.env.BOT_TOKEN)
