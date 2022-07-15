@@ -1,5 +1,7 @@
+const { createInfoEmbed } = require("../util/embedFactory")
+
 const run = async (client, interaction) => {
-    interaction.reply(`Pong!`);
+    interaction.reply({ embeds: [createInfoEmbed("🏓 Pong!", `Responded in **${client.ws.ping}ms**.`)] })
 }
 
 module.exports = {
