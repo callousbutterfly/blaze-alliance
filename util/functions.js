@@ -1,9 +1,5 @@
-const fs = require("fs")
+import fs from "fs";
 
-const getFiles = (path, ending) => {
-    return fs.readdirSync(path).filter(f=> f.endsWith(ending))
-}
-
-module.exports = {
-    getFiles
-}
+export const getFiles = (path, ending) => {
+    return fs.readdirSync(path).filter((f) => f.endsWith(ending));
+};
