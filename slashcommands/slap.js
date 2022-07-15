@@ -1,7 +1,9 @@
+const { createInfoEmbed } = require("../util/embedFactory")
+
 const run = async (client, interaction, member) => {
     let target = interaction.options.getMember("user")
     let author = interaction.user
-    interaction.reply({content: `${author} slapped ${target}!`})
+    interaction.reply({embeds: [createInfoEmbed("👋 Slap!", `${author} slapped ${target}`)]})
 }
 
 module.exports = {
