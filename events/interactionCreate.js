@@ -1,10 +1,25 @@
 import Discord from "discord.js";
+import { applicationList } from "../util/applicationRetriever.js";
 import { createErrorEmbed } from "../util/embedFactory.js";
 
 export default {
     name: "interactionCreate",
     run: async function runAll(bot, interaction, message) {
-        if (interaction.isCommand) {
+        if (interaction.isAutocomplete()) {
+            if (interaction.commandName === "nextpoll") {
+                const focusedOption = interaction.options.getFocused();
+
+                const choices = applicationList.map(t => t.teamName).slice(1, 26);
+
+                const filtered = choices.filter((choice) =>
+                    choice.startsWith(focusedOption)
+                );
+
+                await interaction.respond(
+                    filtered.map((choice) => ({ name: choice, value: choice }))
+                );
+            }
+        } else if (interaction.isCommand) {
             const { client } = bot;
 
             if (!interaction.isCommand()) return;
@@ -37,9 +52,7 @@ export default {
 
             slashcmd.run(client, interaction);
         } else if (interaction.isSelectMenu()) {
-            console.log("here1");
             if (interaction.customId === "rps-select") {
-                console.log("here2");
             }
         }
     },

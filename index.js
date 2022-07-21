@@ -2,6 +2,7 @@ import { Client, Collection } from "discord.js";
 import dotenv from "dotenv";
 import slashcommands from "./handlers/slashcommands.js";
 import events from "./handlers/events.js";
+import { getApplications } from "./util/applicationRetriever.js";
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ let bot = {
     prefix: "/",
     owners: process.env.ADMINS,
 };
+
+getApplications()
 
 client.slashcommands = new Collection();
 client.loadSlashCommands = (bot, reload) => slashcommands(bot, reload);
