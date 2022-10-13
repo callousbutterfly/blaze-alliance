@@ -12,11 +12,6 @@ const run = async (client, interaction, guildID) => {
     const channel = await client.channels.fetch(interaction.channelId);
 
 
-    sequelize.connect( (client) =>{
-        client.query()
-    });
-    
-
     const messageFetch = await channel.messages.fetch({ limit: 1 });
 
     const message = messageFetch.first();
