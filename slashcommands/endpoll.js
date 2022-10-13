@@ -4,6 +4,7 @@ import {
 import Vote from "../model/Vote.js";
 import { Op } from "sequelize";
 import { createErrorEmbed } from "../util/embedFactory.js";
+import sequelize from "../database/postgresqldatabase.js";
 
 
 
@@ -11,7 +12,9 @@ const run = async (client, interaction, guildID) => {
     const channel = await client.channels.fetch(interaction.channelId);
 
 
-    sequelize.delete();
+    sequelize.connect( (client) =>{
+        client.query()
+    });
     
 
     const messageFetch = await channel.messages.fetch({ limit: 1 });
