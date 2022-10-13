@@ -67,7 +67,6 @@ const run = async (client, interaction, guildID) => {
         ],
     });
     await message.thread?.setArchived(true);
-    Vote.removeAttribute("vote");
 
     await interaction.reply({
         content: "Successfully ended the current poll.",
