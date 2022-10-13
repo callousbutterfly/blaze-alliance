@@ -72,6 +72,8 @@ const run = async (client, interaction, guildID) => {
 
     await interaction.reply({
         content: "Successfully ended the current poll.",
+        forVotes: 0,
+        againstVotes: 0;
         ephemeral: true,
     });
 };
