@@ -67,13 +67,14 @@ const run = async (client, interaction, guildID) => {
                 .setColor(0x0d2139),
         ],
     });
+    forVotes = 0;
+    againstVotes = 0;
+    allVotes = 0;
 
     await message.thread?.setArchived(true);
 
     await interaction.reply({
         content: "Successfully ended the current poll.",
-        forVotes: 0,
-        againstVotes: 0;
         ephemeral: true,
     });
 };
