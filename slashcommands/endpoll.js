@@ -11,7 +11,7 @@ const run = async (client, interaction, guildID) => {
     const channel = await client.channels.fetch(interaction.channelId);
 
 
-
+    sequelize.delete();
     
 
     const messageFetch = await channel.messages.fetch({ limit: 1 });
@@ -67,10 +67,6 @@ const run = async (client, interaction, guildID) => {
                 .setColor(0x0d2139),
         ],
     });
-    forVotes = 0;
-    againstVotes = 0;
-    allVotes = 0;
-
     await message.thread?.setArchived(true);
 
     await interaction.reply({
