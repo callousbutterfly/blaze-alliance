@@ -11,6 +11,7 @@ import sequelize from "../database/postgresqldatabase.js";
 const run = async (client, interaction, guildID) => {
     const channel = await client.channels.fetch(interaction.channelId);
 
+   
 
     const messageFetch = await channel.messages.fetch({ limit: 1 });
 
@@ -66,6 +67,7 @@ const run = async (client, interaction, guildID) => {
         ],
     });
     await message.thread?.setArchived(true);
+    Vote.destroy();
 
     await interaction.reply({
         content: "Successfully ended the current poll.",
