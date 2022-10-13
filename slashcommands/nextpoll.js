@@ -147,9 +147,9 @@ const run = async (client, interaction, guildID) => {
     await message.edit({ embeds: [content], components: [row] });
 
     const filter = (i) =>
-        i.customId === `approve-${0}` ||
-        i.customId === `deny-${0}` ||
-        i.customId === `neither-${0}`;
+        i.customId === `approve-${id}` ||
+        i.customId === `deny-${id}` ||
+        i.customId === `neither-${id}`;
 
     const collector = interaction.channel.createMessageComponentCollector({
         filter,
