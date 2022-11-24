@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize";
 
 
-const database = "d3pn0btd9j6tvo";
-const host = "ec2-52-205-61-230.compute-1.amazonaws.com";
-const user = "rxmruityuoxbxi";
-const port = 5432;
-const password = "2e68c9c9e225a0b5e9946dc4c226b3d66ecd074c7822e56524999aa45acaafbf";
+const database = "defaultdb";
+const host = "db-postgresql-nyc1-80766-do-user-12956913-0.b.db.ondigitalocean.com";
+const user = "doadmin";
+const port = 25060;
+const password = "AVNS_nNaWnulOfB81l0Iww9W";
 
 
 const sequelize = new Sequelize(database, user, password, {
