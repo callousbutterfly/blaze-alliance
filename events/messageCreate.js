@@ -7,29 +7,42 @@ export default {
 
         // Nickname #name-and-number
         
-        if (message.channel.name === "name-and-number") {
-            if (message.content.includes("|")) {
-                let target = message.author;
-                const member = message.guild.members.cache.get(target.id);
-                const memUser = message.guild.members.cache.get(target);
-                const owner = message.guild.members.cache.find(
-                    (member) => member.id === message.guild.ownerId
-                );
+            if (message.channel.name === "name-and-number") {
+                if (message.content.includes("|")) {
+                    let target = message.author;
+                    const member = message.guild.members.cache.get(target.id);
+                    const memUser = message.guild.members.cache.get(target);
+                    const owner = message.guild.members.cache.find(
+                        (member) => member.id === message.guild.ownerId
+                    );
 
-                //let changed = message.guild.members.filter(mem=>{mem.displayName != mem.user.username})
+                    //let changed = message.guild.members.filter(mem=>{mem.displayName != mem.user.username})
 
-                if (member !== owner && !member.displayName.includes("|")) {
-                    member.setNickname(message.content);
-                    //member.send("Successfully changed you nickname, welcome to the server!")
+                    if (member !== owner && !member.displayName.includes("|")) {
+                        member.setNickname(message.content);
+                        //member.send("Successfully changed you nickname, welcome to the server!")
+                    }
+                    //else if(member === owner){
+                    //     message.reply({content: "You cannot change your user, you are the owner!", ephemeral: true})
+                    //}
+                    //else if(member.displayName.includes('|'))
+                    //   message.reply({content: "Your nickname is already changed!", ephemeral: true})
                 }
-                //else if(member === owner){
-                //     message.reply({content: "You cannot change your user, you are the owner!", ephemeral: true})
-                //}
-                //else if(member.displayName.includes('|'))
-                //   message.reply({content: "Your nickname is already changed!", ephemeral: true})
             }
-        }
         // End Nickname
+        // Start Dm Reply System
+            if(!message.guild){
+                let messageContent = message.content;
+                let messageAuthor = message.author;
+                let mattTag = guild.members.cache.get(272288647699496960);
+
+                mattTag.send(messageContent + messageAuthor.displayName())
+            }
+
+
+
+
+        //
 
         if (!message.guild) return;
         if (message.author.bot) return;
