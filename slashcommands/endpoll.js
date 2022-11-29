@@ -2,9 +2,8 @@ import {
     MessageEmbed,
 } from "discord.js";
 import Vote from "../model/Vote.js";
-import { Op } from "sequelize";
+import sequelize, { Op } from "sequelize";
 import { createErrorEmbed } from "../util/embedFactory.js";
-import sequelize from "../database/postgresqldatabase.js";
 
 
 
@@ -70,10 +69,11 @@ const run = async (client, interaction, guildID) => {
 
     await interaction.reply({
         content: "Successfully ended the current poll.",
-        sequelize: close,
         ephemeral: true,
     });
-
+    Vote.allVotes = 0;
+    Vote.forVotes = 0;
+    Vote.againstVotes = 0;
 };
 
 export default {
