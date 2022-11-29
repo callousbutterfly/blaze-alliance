@@ -30,20 +30,6 @@ export default {
                 }
             }
         // End Nickname
-        // Start Dm Reply System
-
-        //📩Inbox Forwarding
-            if(!message.guild){
-                let messageContent = message.content;
-                let messageAuthor = message.author;
-                let mattTag = client.users.get("272288647699496960")
-
-                mattTag.send(messageContent + messageAuthor.displayName())
-            }
-
-
-
-
         //
 
         if (!message.guild) return;
