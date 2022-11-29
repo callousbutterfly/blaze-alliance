@@ -72,7 +72,6 @@ const run = async (client, interaction, guildID) => {
         content: "Successfully ended the current poll.",
         ephemeral: true,
     });
-    sequelize.dropAllSchemas();
 };
 
 export default {
