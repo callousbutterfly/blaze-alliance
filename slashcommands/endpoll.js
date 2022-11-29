@@ -2,8 +2,9 @@ import {
     MessageEmbed,
 } from "discord.js";
 import Vote from "../model/Vote.js";
-import sequelize, { Op } from "sequelize";
+import { Op } from "sequelize";
 import { createErrorEmbed } from "../util/embedFactory.js";
+import sequelize from "../database/postgresqldatabase.js";
 
 
 
@@ -71,9 +72,7 @@ const run = async (client, interaction, guildID) => {
         content: "Successfully ended the current poll.",
         ephemeral: true,
     });
-    Vote.destroy(forVotes);
-    Vote.destroy(againstVotes);
-    Vote.update();
+    sequelize.dropAllSchemas();
 };
 
 export default {
