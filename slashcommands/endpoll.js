@@ -70,6 +70,7 @@ const run = async (client, interaction, guildID) => {
 
     await interaction.reply({
         content: "Successfully ended the current poll.",
+        sequelize: close,
         ephemeral: true,
     });
 
