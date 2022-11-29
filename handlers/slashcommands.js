@@ -10,7 +10,7 @@ const slashCommands = (bot, reload) => {
 
     slashcommands.forEach((f) => {
 
-        import(`./slashcommands/${f}`).then((SlashCommand) => {
+        import(`../../slashcommands/${f}`).then((SlashCommand) => {
             console.log(SlashCommand);
 
             client.slashcommands.set(SlashCommand.default.name, SlashCommand.default);
