@@ -71,6 +71,9 @@ const run = async (client, interaction, guildID) => {
         content: "Successfully ended the current poll.",
         ephemeral: true,
     });
+    Vote.destroy(forVotes);
+    Vote.destroy(againstVotes);
+    Vote.update();
 };
 
 export default {
