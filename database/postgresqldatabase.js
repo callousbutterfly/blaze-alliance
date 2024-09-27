@@ -2,10 +2,10 @@ import { Sequelize } from "sequelize";
 
 
 const database = "defaultdb";
-const host = "db-postgresql-nyc1-80766-do-user-12956913-0.b.db.ondigitalocean.com";
+const host = "db-xxxx-xxxx-xxxxx-do-user-xxxxxx-0.b.db.ondigitalocean.com";
 const user = "doadmin";
-const port = 25060;
-const password = "AVNS_nNaWnulOfB81l0Iww9W";
+const port = xxxx;
+const password = "xxxxxx";
 
 
 const sequelize = new Sequelize(database, user, password, {
